@@ -2,11 +2,12 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
-#include <malloc.h>
+// #include <malloc.h>
 
 
 #include "basics.h"
 #include "bitrankw32int.h"
+#include "fixes.h"
 
 typedef struct sFTRep {
 	  uint listLength;
@@ -34,3 +35,4 @@ typedef struct sFTRep {
 	uint * decompressFT(FTRep * listRep, uint n);
 	FTRep* loadFT(char * filename);
 	void destroyFT(FTRep * listRep);
+  ushort * optimizationk(uint * list, int listLength, uint * nkvalues);

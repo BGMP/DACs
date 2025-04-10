@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#include <malloc.h>
+// #include <malloc.h>
 #include <stdio.h>
 
 #include "constants.h"

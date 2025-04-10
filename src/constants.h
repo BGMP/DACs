@@ -35,6 +35,6 @@ Some constants used by the compressor
 #define N_value   10000000
 #define FILLERUINT 0000
 #define byte unsigned char
-#define uint unsigned int
-
-
+#ifndef uint
+typedef unsigned int uint;
+#endif

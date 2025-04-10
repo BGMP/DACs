@@ -16,6 +16,14 @@
 #include <errno.h>
 #include <string.h>
 
+#ifdef __APPLE__
+#include <sys/param.h>
+#include <sys/syslimits.h>
+ // malloc.h is deprecated on macOS, already included via stdlib.h
+#ifndef uint
+ typedef unsigned int uint;
+#endif
+#endif
 
 
   // Data types
@@ -33,9 +41,14 @@
 
 #define max(x,y) ((x)>(y)?(x):(y))
 #define min(x,y) ((x)<(y)?(x):(y))
-	
+
+#ifndef MIN
 #define MIN(a,b) ((a) < (b) ? (a) : (b))
+#endif
+
+#ifndef MAX
 #define MAX(a,b) ((a) > (b) ? (a) : (b))
+#endif
 
 #define LINE_UP(x,numBytes) ((x>>(4-numBytes)*8))   //move "4-bytes" bytes to the right
 						   						   	//so we can write "bytes" bytes from &x

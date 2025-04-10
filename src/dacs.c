@@ -1,5 +1,5 @@
 #include "dacs.h"
-
+#include "fixes.h"
 
 /*-----------------------------------------------------------------
 
@@ -10,7 +10,7 @@
 
 
 
-ushort * optimizationk(uint * list,int listLength, int * nkvalues){
+ushort * optimizationk(uint * list, int listLength, uint * nkvalues){
 	
 	int t,i,m,k;
 		
