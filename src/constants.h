@@ -1,4 +1,4 @@
-/* Wavelet Tree over Dense Code. -- 
+/* Wavelet Tree over Dense Code. --
 A word index using wavelet tree strategy over compressed text.
 
 Programmed by Susana Ladra.
@@ -23,7 +23,8 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
-  
+
+#include "compat.h"
 
 /*-----------------------------------------------------------------------
 Some constants used by the compressor
@@ -35,6 +36,8 @@ Some constants used by the compressor
 #define N_value   10000000
 #define FILLERUINT 0000
 #define byte unsigned char
-#ifndef uint
-typedef unsigned int uint;
-#endif
+
+// MOD: This is now handled by compat.h
+//#ifndef uint
+//typedef unsigned int uint;
+//#endif

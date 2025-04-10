@@ -33,8 +33,19 @@
 #ifndef FIXES_H
 #define FIXES_H
 
-/* Define missing types */
-typedef unsigned long ulong;
+/* Include platform-specific definitions first */
+#include "platform.h"
+
+/* Add any additional fixes that might be needed across platforms */
+#ifdef __APPLE__
+/* macOS-specific typedefs if not provided by system headers */
+#ifndef ushort
 typedef unsigned short ushort;
+#endif
+
+#ifndef ulong
+typedef unsigned long ulong;
+#endif
+#endif
 
 #endif /* FIXES_H */

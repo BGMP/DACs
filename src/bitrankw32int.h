@@ -1,3 +1,5 @@
+#include "compat.h"
+
 #ifndef BitRankW32Int_h
 #define BitRankW32Int_h
 #include "basics.h"

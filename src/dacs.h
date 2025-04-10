@@ -1,3 +1,4 @@
+#include "compat.h"
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
@@ -7,7 +8,6 @@
 
 #include "basics.h"
 #include "bitrankw32int.h"
-#include "fixes.h"
 
 typedef struct sFTRep {
 	  uint listLength;
