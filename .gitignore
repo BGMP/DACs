@@ -1,0 +1,12 @@
+# Vim generated files
+*~
+*.swp
+
+# Mac OSX generated files
+.DS_Store
+
+# JetBrains
+.idea
+
+# Compiled
+*.o

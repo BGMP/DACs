@@ -1,8 +1,9 @@
+#include "compat.h"
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
-#include <malloc.h>
+// #include <malloc.h>
 
 
 #include "basics.h"
@@ -34,3 +35,4 @@ typedef struct sFTRep {
 	uint * decompressFT(FTRep * listRep, uint n);
 	FTRep* loadFT(char * filename);
 	void destroyFT(FTRep * listRep);
+  ushort * optimizationk(uint * list, int listLength, uint * nkvalues);

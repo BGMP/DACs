@@ -1,32 +1,31 @@
+# Makefile for macOS compatibility
+
+# Compiler and flags
+CC = cc
+CFLAGS = -Wall -O3 -D_DARWIN_C_SOURCE -Wno-deprecated-declarations
+
+# Source directories
 SRCDIR = ./src
 
-CC          = gcc
-CFLAGS      =  -O9
+# Source files
+SOURCES = $(SRCDIR)/basics.c $(SRCDIR)/bitrankw32int.c $(SRCDIR)/dacs.c $(SRCDIR)/test.c
 
+# Object files
+OBJECTS = $(SOURCES:.c=.o)
 
-all:   test cleanO
+# Executable
+TARGET = test
 
-clean: 
-	rm -f *.o core test
+all: $(TARGET)
 
-cleanO: 
-	rm -f *.o   
+$(TARGET): $(OBJECTS)
+	$(CC) $(CFLAGS) -o $@ $^ -lm
 
-test:   basics.o bitrankw32int.o dacs.o
-	$(CC) $(CFLAGS) basics.o bitrankw32int.o dacs.o -o test $(SRCDIR)/test.c  
-	
-dacs.o:  basics.o bitrankw32int.o
-	$(CC) $(CFLAGS) -c $(SRCDIR)/dacs.c
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-bitrankw32int.o: 
-	$(CC) $(CFLAGS) -c $(SRCDIR)/$(SRCDIRUTILS)/bitrankw32int.c
-	
-basics.o: basics.c
-	$(CC) $(CFLAGS) -c $(SRCDIR)/$(SRCDIRUTILS)/basics.c
-	
-basics.c: basics.h
-#	touch $(SRCDIR)/$(SRCDIRUTILS)/basics.c	
+clean:
+	rm -f $(SRCDIR)/*.o $(TARGET)
 
-basics.h: 
-#	touch $(SRCDIR)/$(SRCDIRUTILS)/basics.h
-	
+run: $(TARGET)
+	./$(TARGET) $(ARGS)
