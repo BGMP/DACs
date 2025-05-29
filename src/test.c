@@ -56,14 +56,14 @@ void saveTimingResults(const char* filename, uint listLength, uint ftrepSize, do
   int fileExists = 0;
 
   // Check if file exists
-  csvFile = fopen("timing_results.csv", "r");
+  csvFile = fopen("dacs_timing_results.csv", "r");
   if (csvFile != NULL) {
     fileExists = 1;
     fclose(csvFile);
   }
 
   // Open file for appending
-  csvFile = fopen("timing_results.csv", "a");
+  csvFile = fopen("dacs_timing_results.csv", "a");
   if (csvFile == NULL) {
     fprintf(stderr, "Error: Cannot open CSV file for writing\n");
     return;
@@ -78,7 +78,7 @@ void saveTimingResults(const char* filename, uint listLength, uint ftrepSize, do
   fprintf(csvFile, "%s,%u,%u,%.9f,%.9f\n", filename, listLength, ftrepSize, decompressTime, accessTime);
 
   fclose(csvFile);
-  printf("Timing results saved to timing_results.csv\n");
+  printf("Timing results saved to dacs_timing_results.csv\n");
 }
 
 /*------------------------------------------------------------------ */
