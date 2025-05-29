@@ -34,3 +34,4 @@ typedef struct sFTRep {
 	uint * decompressFT(FTRep * listRep, uint n);
 	FTRep* loadFT(char * filename);
 	void destroyFT(FTRep * listRep);
+  uint memoryUsage(FTRep* rep);
