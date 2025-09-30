@@ -1,0 +1,32 @@
+# Vim generated files
+*~
+*.swp
+
+# Mac OSX generated files
+.DS_Store
+
+# JetBrains
+.idea
+
+# Build
+build/
+cmake-build-*/
+*.csv
+*.exe
+*.o
+
+# RStudio files
+.RData
+.Rhistory
+.Rproj.user/
+*.png
+
+# DACs files
+*.dacs
+*.FT
+*.lcp
+*.fatdata
+test
+testaccess
+testdecompress
+
