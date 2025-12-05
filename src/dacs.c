@@ -532,3 +532,42 @@ uint memoryUsage(FTRep* rep) {
 	+ spaceRequirementInBits(rep->bS)/8
 	+ sizeof(struct sFTRep);
 }
+
+void printFT(FTRep * rep, int breve){
+        // printf("sizeLastLevel = %u\n",rep->sizeLastLevel);
+        printf("ListLength = %u\n",rep->listLength);
+        uint nL = rep->nLevels;
+        printf("nLevels = %u\n",nL);
+/*        uint ttb = rep->tamtablebase;
+        printf("tamtablebase = %u\n",ttb);
+		if(breve!=1){
+		printf("Tablebase = ");
+        for(int ii=0;ii<ttb&&ii<1000;ii++){
+            printf("%u ",rep->tablebase[ii]);
+        }
+        printf("\n");
+		}*/
+        printf("Base Bits = ");
+        for(int ii=0;ii<nL;ii++){
+            printf("%u ",rep->base_bits[ii]);
+        }
+        printf("\n");
+        printf("Base = ");
+        for(int ii=0;ii<nL;ii++){
+            printf("%u ",rep->base[ii]);
+        }
+        printf("\n");
+        if(breve!=1){
+            for(int ii=0;ii<rep->nLevels-1;ii++){
+                printf("Levels[%d] = ",ii);
+                // printBitArray(rep->levels[ii],rep->bS[ii]->n*rep->base_bits[ii]);
+            }
+            printf("Levels[%d] = ",rep->nLevels-1);
+            // printBitArray(rep->levels[rep->nLevels-1],rep->sizeLastLevel*rep->base_bits[rep->nLevels-1]);
+		    //for(int ii=0;ii<rep->nLevels-1;ii++){
+            //    printf("Bs[%u] = ",ii);
+            //    printBitArray(rep->bS[ii]->data,rep->bS[ii]->n);
+            //}
+		}
+        printf("FIN\n");
+}
